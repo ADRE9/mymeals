@@ -50,7 +50,7 @@ export const DataProvider = (props: Props) => {
             console.log(e);
           }
         },
-        addMeal: (date: string) => {
+        addMeal: (date: string, type: string) => {
           try {
             const dateObject = {
               [date]: {
@@ -63,8 +63,23 @@ export const DataProvider = (props: Props) => {
               'calendarData',
               JSON.stringify({...data, ...dateObject}),
             );
-            // if ()
-            console.log('Added Meal', data);
+            console.log('Types', type);
+            if (type === 'dinner') {
+              const dot = DINNER1;
+              const Dots = [...data[`${date}`].dots, dot];
+              const DateObj = {...data[`${date}`], dots: Dots};
+              const DB = {...data, [`${date}`]: DateObj};
+              storage.set('calendarData', JSON.stringify({...DB}));
+              console.log('Added DINNER1', data);
+            } else if (type === 'lunch') {
+              const dot = LUNCH1;
+              const Dots = [...data[`${date}`].dots, dot];
+              const DateObj = {...data[`${date}`], dots: Dots};
+              const DB = {...data, [`${date}`]: DateObj};
+              storage.set('calendarData', JSON.stringify({...DB}));
+              console.log('Added DINNER1', data);
+            }
+            console.log('Added LUNCH1', data);
           } catch (e) {}
         },
         editData: (dataObject: {[key: string]: string}) => {

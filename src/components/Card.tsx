@@ -33,19 +33,19 @@ const Card = (props: Props) => {
     if (props.type === 'dinner') {
       switch (props.quantity) {
         case 1: {
-          props.addDotToDate(DINNER2, props.quantity);
+          props.addDotToDate(DINNER2);
           break;
         }
         case 2: {
-          props.addDotToDate(DINNER3, props.quantity);
+          props.addDotToDate(DINNER3);
           break;
         }
         case 3: {
-          props.addDotToDate(DINNER4, props.quantity);
+          props.addDotToDate(DINNER4);
           break;
         }
         default: {
-          props.addDotToDate(DINNER4, props.quantity);
+          props.addDotToDate(DINNER4);
           break;
         }
       }
@@ -53,19 +53,19 @@ const Card = (props: Props) => {
     }
     switch (props.quantity) {
       case 1: {
-        props.addDotToDate(LUNCH2, props.quantity);
+        props.addDotToDate(LUNCH2);
         break;
       }
       case 2: {
-        props.addDotToDate(LUNCH3, props.quantity);
+        props.addDotToDate(LUNCH3);
         break;
       }
       case 3: {
-        props.addDotToDate(LUNCH4, props.quantity);
+        props.addDotToDate(LUNCH4);
         break;
       }
       default: {
-        props.addDotToDate(LUNCH4, props.quantity);
+        props.addDotToDate(LUNCH4);
         break;
       }
     }
@@ -108,15 +108,11 @@ const Card = (props: Props) => {
             ADD
           </Button>
           <Button
-            style={[styles.button, {backgroundColor: theme['color-info-500']}]}>
-            EDIT
-          </Button>
-          <Button
             style={[
               styles.button,
               {backgroundColor: theme['color-primary-900']},
             ]}>
-            DELETE
+            REMOVE
           </Button>
         </ButtonGroup>
       </Layout>

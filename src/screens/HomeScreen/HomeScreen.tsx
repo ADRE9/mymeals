@@ -15,7 +15,8 @@ import dateFormatter from '../../utils/dateFormatter';
 const TODAY = showInitialDates().replace(/'/g, '"');
 
 const HomeScreen = () => {
-  const {data, getData, addMeal, addDots} = useContext(DataContext);
+  const { data, getData, addMeal, addDots } = useContext(DataContext);
+  const [cardData, setCardData] = React.useState();
 
   // console.log('🚀 ~ file: HomeScreen.tsx ~ line 13 ~ HomeScreen ~ data', data);
 
@@ -24,8 +25,8 @@ const HomeScreen = () => {
   }, [getData]);
 
   const addDotToDate = useCallback(
-    (dataObject: IDot, quantity: number) => {
-      addDots(dataObject, TODAY, quantity);
+    (dataObject: IDot) => {
+      addDots(dataObject, TODAY);
     },
     [addDots],
   );
@@ -38,7 +39,7 @@ const HomeScreen = () => {
     let DINNER = 0;
     let LUNCH = 0;
     console.log('Data is', data);
-    if (data) {
+    if (!data) {
       return (
         <Text category="h5" style={styles.text}>
           No Meals Today

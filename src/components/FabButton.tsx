@@ -6,12 +6,11 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
-  withTiming,
 } from 'react-native-reanimated';
 
 type Props = {
   date: string,
-  addMeal: (date: string) => void,
+  addMeal: (date: string, type: string) => void,
 };
 
 const Actions = ['sun-outline', 'moon-outline'];
@@ -36,7 +35,7 @@ const FabButton = (props: Props) => {
     }
   };
 
-  const animatedRotationStyles = useAnimatedStyle(index => {
+  const animatedRotationStyles = useAnimatedStyle(() => {
     return {
       transform: [{rotate: `${rotate.value}deg`}],
     };
@@ -49,14 +48,16 @@ const FabButton = (props: Props) => {
     };
   }, []);
 
-  const addMeals = () => {
-    props.addMeal(props.date);
+  const addMeals = (type: string) => {
+    props.addMeal(props.date, type);
     toggleFab();
   };
 
   return (
     <View style={styles.wrapper}>
-      <TouchableWithoutFeedback onPress={addMeals} key={Actions[1]}>
+      <TouchableWithoutFeedback
+        onPress={() => addMeals('dinner')}
+        key={Actions[1]}>
         <Animated.View
           style={[
             styles.container,
@@ -74,7 +75,9 @@ const FabButton = (props: Props) => {
           />
         </Animated.View>
       </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback onPress={addMeals} key={Actions[0]}>
+      <TouchableWithoutFeedback
+        onPress={() => addMeals('lunch')}
+        key={Actions[0]}>
         <Animated.View
           style={[
             styles.container,
