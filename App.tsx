@@ -15,11 +15,11 @@ import {Provider} from 'react-redux';
 
 import {default as theme} from './src/themes/custom-theme.json';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import Routes from './src/routes/Routes';
+import Routes from './src/navigation/Routes';
 import {storage} from './src/utils/storage';
 import {PersistGate} from 'redux-persist/integration/react';
 import storeProvider from './src/redux/store/store';
-import Temp from './src/routes/Temp';
+import Temp from './src/navigation/Temp';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
