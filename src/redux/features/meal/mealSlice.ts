@@ -7,7 +7,7 @@ interface MealInterface {
 }
 
 const initialState: MealInterface = {
-  meals: {},
+  meals: null,
 };
 
 const mealSlice = createSlice({

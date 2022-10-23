@@ -15,7 +15,6 @@ import Routes from './src/navigation/Routes';
 import {storage} from './src/utils/storage';
 import {PersistGate} from 'redux-persist/integration/react';
 import storeProvider from './src/redux/store/store';
-import Temp from './src/navigation/Temp';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -32,15 +31,15 @@ const App = () => {
       <StrictMode>
         <Provider store={storeProvider().store}>
           <PersistGate loading={null} persistor={storeProvider().persistor}>
-              <NavigationContainer>
-                <SafeAreaView style={styles.backgroundStyle}>
-                  <StatusBar
-                    barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-                    backgroundColor={'white'}
-                  />
-                  <Temp />
-                </SafeAreaView>
-              </NavigationContainer>
+            <NavigationContainer>
+              <SafeAreaView style={styles.backgroundStyle}>
+                <StatusBar
+                  barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+                  backgroundColor={'white'}
+                />
+                <Routes />
+              </SafeAreaView>
+            </NavigationContainer>
           </PersistGate>
         </Provider>
       </StrictMode>

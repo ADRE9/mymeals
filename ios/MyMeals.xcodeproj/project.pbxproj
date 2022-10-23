@@ -14,6 +14,11 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-MyMeals-MyMealsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-MyMeals-MyMealsTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		88D1481480A24442B0D4C6AC /* fgwo____.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3E2071F02544378AD216D26 /* fgwo____.ttf */; };
+		F0BE6DA452744985B2306E9A /* FRANKGO.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9C2DE90D99843FAA8FC36BF /* FRANKGO.ttf */; };
+		B22B8B928A60466BAF70CC12 /* Franklin Gothic Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAAF332B2C394B9F92E4C2F4 /* Franklin Gothic Condensed.ttf */; };
+		8240D17B3CF3479382D12E3B /* FranklinGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E692E59248FF4162B27AAF63 /* FranklinGothic.ttf */; };
+		625D4A5EAE3945098CBD9232 /* FranklinGothicITALIC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E2FFAF602884CFB886782A9 /* FranklinGothicITALIC.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MyMeals/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-MyMeals-MyMealsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMeals-MyMealsTests.release.xcconfig"; path = "Target Support Files/Pods-MyMeals-MyMealsTests/Pods-MyMeals-MyMealsTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		E3E2071F02544378AD216D26 /* fgwo____.ttf */ = {isa = PBXFileReference; name = "fgwo____.ttf"; path = "../src/assets/fonts/fgwo____.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D9C2DE90D99843FAA8FC36BF /* FRANKGO.ttf */ = {isa = PBXFileReference; name = "FRANKGO.ttf"; path = "../src/assets/fonts/FRANKGO.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FAAF332B2C394B9F92E4C2F4 /* Franklin Gothic Condensed.ttf */ = {isa = PBXFileReference; name = "Franklin Gothic Condensed.ttf"; path = "../src/assets/fonts/Franklin Gothic Condensed.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E692E59248FF4162B27AAF63 /* FranklinGothic.ttf */ = {isa = PBXFileReference; name = "FranklinGothic.ttf"; path = "../src/assets/fonts/FranklinGothic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1E2FFAF602884CFB886782A9 /* FranklinGothicITALIC.ttf */ = {isa = PBXFileReference; name = "FranklinGothicITALIC.ttf"; path = "../src/assets/fonts/FranklinGothicITALIC.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +132,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				4D661793F07944E092CEFC34 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +158,19 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		4D661793F07944E092CEFC34 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				E3E2071F02544378AD216D26 /* fgwo____.ttf */,
+				D9C2DE90D99843FAA8FC36BF /* FRANKGO.ttf */,
+				FAAF332B2C394B9F92E4C2F4 /* Franklin Gothic Condensed.ttf */,
+				E692E59248FF4162B27AAF63 /* FranklinGothic.ttf */,
+				1E2FFAF602884CFB886782A9 /* FranklinGothicITALIC.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +268,11 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				88D1481480A24442B0D4C6AC /* fgwo____.ttf in Resources */,
+				F0BE6DA452744985B2306E9A /* FRANKGO.ttf in Resources */,
+				B22B8B928A60466BAF70CC12 /* Franklin Gothic Condensed.ttf in Resources */,
+				8240D17B3CF3479382D12E3B /* FranklinGothic.ttf in Resources */,
+				625D4A5EAE3945098CBD9232 /* FranklinGothicITALIC.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
