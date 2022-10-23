@@ -35,21 +35,21 @@ const App = () => {
     <>
       <StrictMode>
         <IconRegistry icons={EvaIconsPack} />
-        <ApplicationProvider {...eva} theme={{...eva.dark, ...theme}}>
-          <Provider store={storeProvider().store}>
-            <PersistGate loading={null} persistor={storeProvider().persistor}>
+        <Provider store={storeProvider().store}>
+          <PersistGate loading={null} persistor={storeProvider().persistor}>
+            <ApplicationProvider {...eva} theme={{...eva.dark, ...theme}}>
               <NavigationContainer>
                 <SafeAreaView style={styles.backgroundStyle}>
                   <StatusBar
                     barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-                    backgroundColor={'black'}
+                    backgroundColor={'white'}
                   />
                   <Temp />
                 </SafeAreaView>
               </NavigationContainer>
-            </PersistGate>
-          </Provider>
-        </ApplicationProvider>
+            </ApplicationProvider>
+          </PersistGate>
+        </Provider>
       </StrictMode>
     </>
   );
