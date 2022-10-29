@@ -16,7 +16,13 @@ const AuthStack = (props: Props) => {
         name="Register"
         component={RegisterScreen}
         options={({navigation}) => ({
-          header: () => <NavHeader navigation={navigation} title="REGISTER" />,
+          header: () => (
+            <NavHeader
+              backgroundColor="#00DB99"
+              navigation={navigation}
+              title="REGISTER"
+            />
+          ),
         })}
       />
     </Stack.Navigator>

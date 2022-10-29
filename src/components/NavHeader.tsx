@@ -4,14 +4,19 @@ import React from 'react';
 type Props = {
   title?: string | null,
   navigation: any,
+  backgroundColor?: string,
 };
 
 const NavHeader = (props: Props) => {
   return (
-    <View style={styles.navHeaderContainer}>
+    <View
+      style={[
+        styles.navHeaderContainer,
+        {backgroundColor: props.backgroundColor || '#FFFFF'},
+      ]}>
       <Text style={styles.navHeader}>{props.title}</Text>
       <TouchableOpacity>
-        <Text>Already a User ?</Text>
+        <Text style={styles.login}>LOGIN</Text>
       </TouchableOpacity>
     </View>
   );
@@ -27,12 +32,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 10,
     justifyContent: 'space-between',
-    backgroundColor: 'white',
   },
   navHeader: {
     color: 'black',
-    fontWeight: 'bold',
     fontFamily: 'FranklinGothic',
-    fontSize: 25,
+    fontSize: 35,
+  },
+  login: {
+    fontFamily: 'FranklinGothic',
+    color: 'black',
   },
 });

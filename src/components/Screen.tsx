@@ -6,10 +6,19 @@ type Props = {
   children: any,
   eva?: any,
   style?: any,
+  backgroundColor?: string,
 };
 
 const Screen = (props: Props) => {
-  return <View style={[styles.view]}>{props.children}</View>;
+  return (
+    <View
+      style={[
+        styles.view,
+        {backgroundColor: props.backgroundColor || '#FFFFF'},
+      ]}>
+      {props.children}
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
