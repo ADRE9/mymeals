@@ -15,7 +15,7 @@ const RegisterScreen = (props: Props) => {
     <Screen backgroundColor="#00DB99">
       <Text style={styles.label}>Enter Your Name</Text>
       <NeuBrutalForm />
-      <RightArrow height={10} width={10} />
+      <RightArrow height={640} />
     </Screen>
   );
 };
