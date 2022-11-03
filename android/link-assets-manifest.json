@@ -1,0 +1,25 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/fgwo____.ttf",
+      "sha1": "f84eb1f6140b0e959a4e70dfeebbe1b6098034a6"
+    },
+    {
+      "path": "src/assets/fonts/FRANKGO.ttf",
+      "sha1": "eedfa8e8cf1041121baef109e3cee9930c547512"
+    },
+    {
+      "path": "src/assets/fonts/Franklin Gothic Condensed.ttf",
+      "sha1": "eedfa8e8cf1041121baef109e3cee9930c547512"
+    },
+    {
+      "path": "src/assets/fonts/FranklinGothic.ttf",
+      "sha1": "90125e06eba8706828db01fc7d36fa3d77e24397"
+    },
+    {
+      "path": "src/assets/fonts/FranklinGothicITALIC.ttf",
+      "sha1": "f84eb1f6140b0e959a4e70dfeebbe1b6098034a6"
+    }
+  ]
+}

@@ -1,5 +1,4 @@
-import {Layout} from '@ui-kitten/components';
-import {useTheme, useStyleSheet, StyleService} from '@ui-kitten/components';
+import {View, StyleSheet} from 'react-native';
 
 import React from 'react';
 
@@ -7,22 +6,24 @@ type Props = {
   children: any,
   eva?: any,
   style?: any,
+  backgroundColor?: string,
 };
 
 const Screen = (props: Props) => {
-  const theme = useTheme();
-  const styles = useStyleSheet(themedStyles);
-
   return (
-    <Layout style={[styles.view, {color: theme['color-primary-100']}]}>
+    <View
+      style={[
+        styles.view,
+        {backgroundColor: props.backgroundColor || '#FFFFF'},
+      ]}>
       {props.children}
-    </Layout>
+    </View>
   );
 };
 
-const themedStyles = StyleService.create({
+const styles = StyleSheet.create({
   view: {
-    backgroundColor: 'color-primary-500',
+    backgroundColor: 'white',
     flex: 1,
     paddingTop: 10,
     paddingHorizontal: '5%',

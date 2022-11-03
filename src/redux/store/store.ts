@@ -23,8 +23,7 @@ const persistedReducer: any = persistReducer(persistConfig, rootReducer);
 export default () => {
   let store: any = configureStore({
     reducer: persistedReducer,
-    middleware: getDefaultMiddleware =>
-      getDefaultMiddleware().concat(middlewares),
+    middleware: middlewares,
   });
   let persistor: any = persistStore(store);
   return {store, persistor};

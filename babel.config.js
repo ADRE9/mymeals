@@ -1,4 +1,8 @@
-module.exports = {
-  presets: ['module:metro-react-native-babel-preset'],
-  plugins: ['transform-remove-console', 'react-native-reanimated/plugin'],
-};
+const presets = ['module:metro-react-native-babel-preset'];
+let plugins = ['react-native-reanimated/plugin'];
+
+if (process.env['ENV'] === 'prod') {
+  plugins = ['transform-remove-console', ...plugins];
+}
+
+module.exports = {presets, plugins};
