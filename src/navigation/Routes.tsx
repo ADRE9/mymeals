@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {useSelector} from 'react-redux';
-import type {RootState} from '../redux/features';
+import type {RootState} from '../redux/slices';
 import AuthStack from './AuthStack/AuthStack';
 
 const Routes = () => {

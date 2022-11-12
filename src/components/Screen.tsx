@@ -1,6 +1,7 @@
 import {View, StyleSheet} from 'react-native';
 
 import React from 'react';
+import {perfectHeight} from '../utils/perfectSize';
 
 type Props = {
   children: any,
@@ -23,7 +24,6 @@ const Screen = (props: Props) => {
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: 'white',
     flex: 1,
     paddingTop: 10,
     paddingHorizontal: '5%',

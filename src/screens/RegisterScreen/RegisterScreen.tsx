@@ -1,6 +1,11 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 import React from 'react';
 
+import {
+  perfectFontSize,
+  perfectHeight,
+  perfectWidth,
+} from '../../utils/perfectSize';
 import Screen from '../../components/Screen';
 import NeuBrutalForm from '../../components/NeuBrutalForm';
 import {RightArrow} from 'svg';
