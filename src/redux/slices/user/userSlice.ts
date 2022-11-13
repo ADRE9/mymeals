@@ -1,17 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-interface UserInterface {
-  username: string | null;
-  email: string | null;
-  password: string | null;
-  mealProvider: string | null;
-  phoneNumber: string | null;
-  isEmailVerified: boolean | null;
-  isPhNumVerified: boolean | null;
-  isLoggedIn: boolean | null;
-}
+//types
+import {IUser} from '../../../types/types';
 
-const initialState: UserInterface = {
+const initialState: IUser = {
   username: null,
   email: null,
   password: null,

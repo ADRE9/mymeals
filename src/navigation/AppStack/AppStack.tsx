@@ -2,6 +2,7 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import HomeScreen from '../../screens/HomeScreen/HomeScreen';
+import AccountScreen from '../../screens/AccountScreen/AccountScreen';
 import NavHeader from '../../components/NavHeader';
 import {perfectHeight, perfectWidth} from '../../utils/perfectSize';
 
@@ -15,6 +16,13 @@ const AppStack = (props: Props) => {
       <Stack.Screen
         name="Home"
         component={HomeScreen}
+        options={() => ({
+          header: () => null,
+        })}
+      />
+      <Stack.Screen
+        name="Account"
+        component={AccountScreen}
         options={() => ({
           header: () => null,
         })}

@@ -12,4 +12,5 @@ export type RegisterScreenProps = NativeStackScreenProps<
 
 export type AppStackParamList = {
   Home: any,
+  Account: any,
 };

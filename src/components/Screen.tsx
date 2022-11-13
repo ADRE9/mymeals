@@ -8,6 +8,7 @@ type Props = {
   eva?: any,
   style?: any,
   backgroundColor?: string,
+  paddingHorizontal?: number,
 };
 
 const Screen = (props: Props) => {
@@ -15,7 +16,10 @@ const Screen = (props: Props) => {
     <View
       style={[
         styles.view,
-        {backgroundColor: props.backgroundColor || '#FFFFFF'},
+        {
+          backgroundColor: props.backgroundColor || '#FFFFFF',
+          paddingHorizontal: props.paddingHorizontal || 0,
+        },
       ]}>
       {props.children}
     </View>
