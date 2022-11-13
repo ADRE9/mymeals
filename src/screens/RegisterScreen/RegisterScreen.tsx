@@ -9,6 +9,7 @@ import {
 import React, {useEffect, useRef, useState} from 'react';
 import {Formik} from 'formik';
 import {useDispatch} from 'react-redux';
+import Lottie from 'lottie-react-native';
 
 import {
   perfectFontSize,
@@ -137,6 +138,14 @@ const RegisterScreen = () => {
                 );
               }}
             />
+            <View style={styles.lottieWrapper}>
+              <Lottie
+                style={styles.lottie}
+                source={require('../../assets/lotties/foodies.json')}
+                autoPlay
+                // loop
+              />
+            </View>
             <View style={styles.bottomBar}>
               {index === 0 && (
                 <View>
@@ -199,6 +208,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-start',
     paddingHorizontal: perfectWidth(20),
+    backgroundColor: 'red',
   },
   bottomBar: {
     flexDirection: 'row',
@@ -219,5 +229,15 @@ const styles = StyleSheet.create({
     fontFamily: 'FranklinGothic',
     fontWeight: '100',
     color: 'black',
+  },
+  lottie: {
+    width: 100,
+    height: 100,
+  },
+  lottieWrapper: {
+    flex: 1,
+    backgroundColor: 'red',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
