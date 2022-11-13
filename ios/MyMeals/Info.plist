@@ -58,6 +58,15 @@
 		<string>Franklin Gothic Condensed.ttf</string>
 		<string>FranklinGothic.ttf</string>
 		<string>FranklinGothicITALIC.ttf</string>
+		<string>GothicA1-Black.ttf</string>
+		<string>GothicA1-Bold.ttf</string>
+		<string>GothicA1-ExtraBold.ttf</string>
+		<string>GothicA1-ExtraLight.ttf</string>
+		<string>GothicA1-Light.ttf</string>
+		<string>GothicA1-Medium.ttf</string>
+		<string>GothicA1-Regular.ttf</string>
+		<string>GothicA1-SemiBold.ttf</string>
+		<string>GothicA1-Thin.ttf</string>
 	</array>
 </dict>
 </plist>

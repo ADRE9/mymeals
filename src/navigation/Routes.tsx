@@ -1,19 +1,16 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {useSelector} from 'react-redux';
-import type {RootState} from '../redux/features';
+import type {RootState} from '../redux/slices';
 import AuthStack from './AuthStack/AuthStack';
+import AppStack from './AppStack/AppStack';
 
 const Routes = () => {
   const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
   if (!isLoggedIn) {
     return <AuthStack />;
   }
-  return (
-    <View>
-      <Text>Logged In</Text>
-    </View>
-  );
+  return <AppStack />;
 };
 
 export default Routes;

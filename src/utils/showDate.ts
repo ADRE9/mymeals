@@ -15,7 +15,7 @@ const showDates = () => {
   ];
   const date = new Date();
   let day = date.getDate();
-  let month = months[date.getMonth()];
+  let month = months[date.getMonth()].slice(0, 3);
   let year = date.getFullYear();
 
   return `${day} ${month} ${year}`;

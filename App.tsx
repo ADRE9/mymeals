@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   StatusBar,
@@ -9,6 +9,7 @@ import {StrictMode} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {initializeMMKVFlipper} from 'react-native-mmkv-flipper-plugin';
 import {Provider} from 'react-redux';
+import SplashScreen from 'react-native-splash-screen';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Routes from './src/navigation/Routes';
@@ -17,6 +18,9 @@ import {PersistGate} from 'redux-persist/integration/react';
 import storeProvider from './src/redux/store/store';
 
 const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
   const isDarkMode = useColorScheme() === 'dark';
   if (__DEV__) {
     initializeMMKVFlipper({default: storage});

@@ -19,6 +19,15 @@
 		B22B8B928A60466BAF70CC12 /* Franklin Gothic Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAAF332B2C394B9F92E4C2F4 /* Franklin Gothic Condensed.ttf */; };
 		8240D17B3CF3479382D12E3B /* FranklinGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E692E59248FF4162B27AAF63 /* FranklinGothic.ttf */; };
 		625D4A5EAE3945098CBD9232 /* FranklinGothicITALIC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E2FFAF602884CFB886782A9 /* FranklinGothicITALIC.ttf */; };
+		34716711430642B2A952B12D /* GothicA1-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A282A42ABFA74399B46F747C /* GothicA1-Black.ttf */; };
+		E32954C9D7324149B8177108 /* GothicA1-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B57A3BB1EDEC49C895806D55 /* GothicA1-Bold.ttf */; };
+		6B767FDDEF6B408796244A1E /* GothicA1-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3FB06ED441346B694B7FB49 /* GothicA1-ExtraBold.ttf */; };
+		DABC596B25264AF28A26842B /* GothicA1-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD25C9ACEF7D43CD890176CD /* GothicA1-ExtraLight.ttf */; };
+		D834A9BFE6C248BCAE715B26 /* GothicA1-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 974FF2C4C21148A1896576E5 /* GothicA1-Light.ttf */; };
+		1DF4C54996944980B3BACE33 /* GothicA1-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43F293BFDE164F248F82DA4C /* GothicA1-Medium.ttf */; };
+		D5DB4AE0F9B043A4A32BF83E /* GothicA1-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A35E838CFDCC4D06885CF620 /* GothicA1-Regular.ttf */; };
+		A5E9F191E53F4E3FAA012246 /* GothicA1-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EEC916301D64E56A5088444 /* GothicA1-SemiBold.ttf */; };
+		8E6DB3F3E3304C13B81D9D77 /* GothicA1-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB1992221DA74B95B79B8044 /* GothicA1-Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +63,15 @@
 		FAAF332B2C394B9F92E4C2F4 /* Franklin Gothic Condensed.ttf */ = {isa = PBXFileReference; name = "Franklin Gothic Condensed.ttf"; path = "../src/assets/fonts/Franklin Gothic Condensed.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		E692E59248FF4162B27AAF63 /* FranklinGothic.ttf */ = {isa = PBXFileReference; name = "FranklinGothic.ttf"; path = "../src/assets/fonts/FranklinGothic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		1E2FFAF602884CFB886782A9 /* FranklinGothicITALIC.ttf */ = {isa = PBXFileReference; name = "FranklinGothicITALIC.ttf"; path = "../src/assets/fonts/FranklinGothicITALIC.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A282A42ABFA74399B46F747C /* GothicA1-Black.ttf */ = {isa = PBXFileReference; name = "GothicA1-Black.ttf"; path = "../src/assets/fonts/GothicA1-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B57A3BB1EDEC49C895806D55 /* GothicA1-Bold.ttf */ = {isa = PBXFileReference; name = "GothicA1-Bold.ttf"; path = "../src/assets/fonts/GothicA1-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C3FB06ED441346B694B7FB49 /* GothicA1-ExtraBold.ttf */ = {isa = PBXFileReference; name = "GothicA1-ExtraBold.ttf"; path = "../src/assets/fonts/GothicA1-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AD25C9ACEF7D43CD890176CD /* GothicA1-ExtraLight.ttf */ = {isa = PBXFileReference; name = "GothicA1-ExtraLight.ttf"; path = "../src/assets/fonts/GothicA1-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		974FF2C4C21148A1896576E5 /* GothicA1-Light.ttf */ = {isa = PBXFileReference; name = "GothicA1-Light.ttf"; path = "../src/assets/fonts/GothicA1-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		43F293BFDE164F248F82DA4C /* GothicA1-Medium.ttf */ = {isa = PBXFileReference; name = "GothicA1-Medium.ttf"; path = "../src/assets/fonts/GothicA1-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A35E838CFDCC4D06885CF620 /* GothicA1-Regular.ttf */ = {isa = PBXFileReference; name = "GothicA1-Regular.ttf"; path = "../src/assets/fonts/GothicA1-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3EEC916301D64E56A5088444 /* GothicA1-SemiBold.ttf */ = {isa = PBXFileReference; name = "GothicA1-SemiBold.ttf"; path = "../src/assets/fonts/GothicA1-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CB1992221DA74B95B79B8044 /* GothicA1-Thin.ttf */ = {isa = PBXFileReference; name = "GothicA1-Thin.ttf"; path = "../src/assets/fonts/GothicA1-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +185,15 @@
 				FAAF332B2C394B9F92E4C2F4 /* Franklin Gothic Condensed.ttf */,
 				E692E59248FF4162B27AAF63 /* FranklinGothic.ttf */,
 				1E2FFAF602884CFB886782A9 /* FranklinGothicITALIC.ttf */,
+				A282A42ABFA74399B46F747C /* GothicA1-Black.ttf */,
+				B57A3BB1EDEC49C895806D55 /* GothicA1-Bold.ttf */,
+				C3FB06ED441346B694B7FB49 /* GothicA1-ExtraBold.ttf */,
+				AD25C9ACEF7D43CD890176CD /* GothicA1-ExtraLight.ttf */,
+				974FF2C4C21148A1896576E5 /* GothicA1-Light.ttf */,
+				43F293BFDE164F248F82DA4C /* GothicA1-Medium.ttf */,
+				A35E838CFDCC4D06885CF620 /* GothicA1-Regular.ttf */,
+				3EEC916301D64E56A5088444 /* GothicA1-SemiBold.ttf */,
+				CB1992221DA74B95B79B8044 /* GothicA1-Thin.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -273,6 +300,15 @@
 				B22B8B928A60466BAF70CC12 /* Franklin Gothic Condensed.ttf in Resources */,
 				8240D17B3CF3479382D12E3B /* FranklinGothic.ttf in Resources */,
 				625D4A5EAE3945098CBD9232 /* FranklinGothicITALIC.ttf in Resources */,
+				34716711430642B2A952B12D /* GothicA1-Black.ttf in Resources */,
+				E32954C9D7324149B8177108 /* GothicA1-Bold.ttf in Resources */,
+				6B767FDDEF6B408796244A1E /* GothicA1-ExtraBold.ttf in Resources */,
+				DABC596B25264AF28A26842B /* GothicA1-ExtraLight.ttf in Resources */,
+				D834A9BFE6C248BCAE715B26 /* GothicA1-Light.ttf in Resources */,
+				1DF4C54996944980B3BACE33 /* GothicA1-Medium.ttf in Resources */,
+				D5DB4AE0F9B043A4A32BF83E /* GothicA1-Regular.ttf in Resources */,
+				A5E9F191E53F4E3FAA012246 /* GothicA1-SemiBold.ttf in Resources */,
+				8E6DB3F3E3304C13B81D9D77 /* GothicA1-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@ import RegisterScreen from '../../screens/RegisterScreen/RegisterScreen';
 import NavHeader from '../../components/NavHeader';
 
 import type {AuthStackParamList} from '../../types/navigationTypes';
+import {perfectHeight, perfectWidth} from '../../utils/perfectSize';
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 
@@ -18,7 +19,10 @@ const AuthStack = (props: Props) => {
         options={({navigation}) => ({
           header: () => (
             <NavHeader
-              backgroundColor="#00DB99"
+              backgroundColor="#FFF"
+              paddingRight={perfectWidth(20)}
+              paddingLeft={perfectWidth(20)}
+              paddingTop={perfectHeight(24)}
               navigation={navigation}
               title="REGISTER"
             />

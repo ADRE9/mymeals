@@ -1,12 +1,14 @@
 import {View, StyleSheet} from 'react-native';
 
 import React from 'react';
+import {perfectHeight} from '../utils/perfectSize';
 
 type Props = {
   children: any,
   eva?: any,
   style?: any,
   backgroundColor?: string,
+  paddingHorizontal?: number,
 };
 
 const Screen = (props: Props) => {
@@ -14,7 +16,10 @@ const Screen = (props: Props) => {
     <View
       style={[
         styles.view,
-        {backgroundColor: props.backgroundColor || '#FFFFF'},
+        {
+          backgroundColor: props.backgroundColor || '#FFFFFF',
+          paddingHorizontal: props.paddingHorizontal || 0,
+        },
       ]}>
       {props.children}
     </View>
@@ -23,10 +28,10 @@ const Screen = (props: Props) => {
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: 'white',
+    position: 'relative',
     flex: 1,
-    paddingTop: 10,
-    paddingHorizontal: '5%',
+    // paddingTop: 10,
+    // paddingHorizontal: '5%',
   },
 });
 export default Screen;

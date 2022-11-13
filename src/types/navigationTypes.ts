@@ -7,5 +7,10 @@ export type AuthStackParamList = {
 export type RegisterScreenProps = NativeStackScreenProps<
   AuthStackParamList,
   // eslint-disable-next-line prettier/prettier
-  'Register'
+  'Register',
 >;
+
+export type AppStackParamList = {
+  Home: any,
+  Account: any,
+};

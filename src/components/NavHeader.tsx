@@ -1,10 +1,14 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
+import {perfectHeight} from '../utils/perfectSize';
 
 type Props = {
   title?: string | null,
   navigation: any,
   backgroundColor?: string,
+  paddingLeft?: number | string,
+  paddingRight?: number | string,
+  paddingTop?: number | string,
 };
 
 const NavHeader = (props: Props) => {
@@ -12,12 +16,14 @@ const NavHeader = (props: Props) => {
     <View
       style={[
         styles.navHeaderContainer,
-        {backgroundColor: props.backgroundColor || '#FFFFF'},
+        {
+          backgroundColor: props.backgroundColor || '#FFFFF',
+          paddingLeft: props.paddingLeft || 10,
+          paddingRight: props.paddingRight || 10,
+          paddingTop: props.paddingTop || 10,
+        },
       ]}>
       <Text style={styles.navHeader}>{props.title}</Text>
-      <TouchableOpacity>
-        <Text style={styles.login}>LOGIN</Text>
-      </TouchableOpacity>
     </View>
   );
 };
@@ -26,7 +32,7 @@ export default NavHeader;
 
 const styles = StyleSheet.create({
   navHeaderContainer: {
-    height: 60,
+    height: perfectHeight(70),
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
