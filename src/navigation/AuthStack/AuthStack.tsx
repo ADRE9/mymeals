@@ -19,9 +19,9 @@ const AuthStack = (props: Props) => {
         options={({navigation}) => ({
           header: () => (
             <NavHeader
-              backgroundColor="#00DB99"
-              paddingRight={perfectWidth(60)}
-              paddingLeft={perfectWidth(60)}
+              backgroundColor="#FFF"
+              paddingRight={perfectWidth(20)}
+              paddingLeft={perfectWidth(20)}
               paddingTop={perfectHeight(24)}
               navigation={navigation}
               title="REGISTER"

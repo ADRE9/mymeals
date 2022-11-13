@@ -5,7 +5,7 @@ interface UserInterface {
   email: string | null;
   password: string | null;
   mealProvider: string | null;
-  phNumber: string | null;
+  phoneNumber: string | null;
   isEmailVerified: boolean | null;
   isPhNumVerified: boolean | null;
   isLoggedIn: boolean | null;
@@ -16,7 +16,7 @@ const initialState: UserInterface = {
   email: null,
   password: null,
   mealProvider: null,
-  phNumber: null,
+  phoneNumber: null,
   isEmailVerified: null,
   isPhNumVerified: null,
   isLoggedIn: null,
@@ -28,7 +28,10 @@ const userSlice = createSlice({
   reducers: {
     registerUser: (state, action) => {
       state.isLoggedIn = true;
-      state = action.payload;
+      state.username = action.payload.name;
+      state.email = action.payload.email;
+      state.phoneNumber = action.payload.phoneNumber;
+      state.password = action.payload.password;
     },
     loginUser: (state, action) => {
       state.isLoggedIn = true;

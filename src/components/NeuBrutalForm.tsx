@@ -1,13 +1,35 @@
 import {StyleSheet, Text, View, TextInput} from 'react-native';
 import React from 'react';
 
-type Props = {};
+type Props = {
+  handleChange: any,
+  handleBlur: any,
+  values: any,
+  field: string,
+  errors: any,
+  touched: any,
+};
 
 const NeuBrutalForm = (props: Props) => {
   return (
-    <View style={styles.inputContainer}>
-      <TextInput style={styles.textInput} />
-    </View>
+    <>
+      <View style={styles.inputContainer}>
+        <TextInput
+          onChangeText={props.handleChange(`${props.field}`)}
+          onBlur={props.handleBlur(`${props.field}`)}
+          value={props.values[`${props.field}`]}
+          style={styles.textInput}
+          secureTextEntry={
+            props.field === 'password' || props.field === 'confirmPassword'
+              ? true
+              : false
+          }
+        />
+      </View>
+      {props.errors[`${props.field}`] && props.touched[`${props.field}`] && (
+        <Text style={styles.warning}>{props.errors[`${props.field}`]}</Text>
+      )}
+    </>
   );
 };
 
@@ -22,6 +44,7 @@ const styles = StyleSheet.create({
     height: 40,
     top: 4,
     left: 3,
+    marginBottom: 10,
   },
   textInput: {
     position: 'absolute',
@@ -37,5 +60,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     fontFamily: 'FranklinGothic',
     paddingHorizontal: 10,
+  },
+  warning: {
+    color: 'red',
   },
 });

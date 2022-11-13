@@ -24,9 +24,6 @@ const NavHeader = (props: Props) => {
         },
       ]}>
       <Text style={styles.navHeader}>{props.title}</Text>
-      <TouchableOpacity>
-        <Text style={styles.login}>LOGIN</Text>
-      </TouchableOpacity>
     </View>
   );
 };

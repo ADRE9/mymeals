@@ -15,6 +15,7 @@
     "@react-navigation/native-stack": "^6.9.1",
     "@reduxjs/toolkit": "^1.8.6",
     "@types/react-redux": "^7.1.24",
+    "formik": "^2.2.9",
     "lottie-ios": "3.4.0",
     "lottie-react-native": "^5.1.4",
     "normalizr": "^3.6.2",
@@ -31,7 +32,8 @@
     "react-native-vector-icons": "^9.2.0",
     "react-redux": "^8.0.4",
     "redux-flipper": "^2.0.2",
-    "redux-persist": "^6.0.0"
+    "redux-persist": "^6.0.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

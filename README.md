@@ -36,6 +36,7 @@
 
   <h3 align="center">My Meals</h3>
   <h4>npm install -g yarn</h4>
+  <h4>npx react-native-asset to link assets</h4>
 
   <p align="center">
     An awesome README template to jumpstart your projects!

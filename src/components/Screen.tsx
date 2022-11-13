@@ -15,7 +15,7 @@ const Screen = (props: Props) => {
     <View
       style={[
         styles.view,
-        {backgroundColor: props.backgroundColor || '#FFFFF'},
+        {backgroundColor: props.backgroundColor || '#FFFFFF'},
       ]}>
       {props.children}
     </View>
@@ -24,9 +24,10 @@ const Screen = (props: Props) => {
 
 const styles = StyleSheet.create({
   view: {
+    position: 'relative',
     flex: 1,
-    paddingTop: 10,
-    paddingHorizontal: '5%',
+    // paddingTop: 10,
+    // paddingHorizontal: '5%',
   },
 });
 export default Screen;
