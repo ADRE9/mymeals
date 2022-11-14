@@ -1,6 +1,7 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {perfectHeight} from '../utils/perfectSize';
+import Animated, {FlipInXUp, FlipOutXDown} from 'react-native-reanimated';
 
 type Props = {
   title?: string | null,
@@ -9,6 +10,7 @@ type Props = {
   paddingLeft?: number | string,
   paddingRight?: number | string,
   paddingTop?: number | string,
+  children: any,
 };
 
 const NavHeader = (props: Props) => {
@@ -24,6 +26,12 @@ const NavHeader = (props: Props) => {
         },
       ]}>
       <Text style={styles.navHeader}>{props.title}</Text>
+      <Animated.View
+        entering={FlipInXUp.springify()}
+        exiting={FlipOutXDown.springify()}
+        style={styles.lottieWrapper}>
+        {props.children}
+      </Animated.View>
     </View>
   );
 };
@@ -47,5 +55,11 @@ const styles = StyleSheet.create({
   login: {
     fontFamily: 'FranklinGothic',
     color: 'black',
+  },
+  lottieWrapper: {
+    // // flex: 1,
+    // // justifyContent: 'center',
+    // // alignItems: 'center',
+    // borderWidth:1
   },
 });

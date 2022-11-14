@@ -7,9 +7,10 @@ import {
   ListRenderItemInfo,
 } from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
-import {Formik} from 'formik';
+import {Formik, validateYupSchema} from 'formik';
 import {useDispatch} from 'react-redux';
 import Lottie from 'lottie-react-native';
+import Animated, {FlipInXUp, FlipOutXDown} from 'react-native-reanimated';
 
 import {
   perfectFontSize,
@@ -22,6 +23,7 @@ import {RightArrow} from 'svg';
 import {windowWidth} from '../../utils/dimensions';
 import signUpSchema from '../../utils/registerSchema';
 import {registerUser} from '../../redux/slices/user/userSlice';
+import showNextButton from '../../utils/showNextButton';
 
 interface IField {
   id: string;
@@ -76,25 +78,6 @@ const RegisterScreen = () => {
     setIndex(prev => prev - 1);
   };
 
-  const showNextButton = (errors: any) => {
-    if (index === 0 && errors.name) {
-      return false;
-    }
-    if (index === 1 && errors.email) {
-      return false;
-    }
-    if (index === 2 && errors.phoneNumber) {
-      return false;
-    }
-    if (index === 3 && errors.password) {
-      return false;
-    }
-    if (index === 4 && errors.confirmPassword) {
-      return false;
-    }
-    return true;
-  };
-
   const submitValues = (values: IFormValue) => {
     dispatch(registerUser(values));
   };
@@ -119,6 +102,7 @@ const RegisterScreen = () => {
               initialScrollIndex={index}
               ref={aref}
               showsHorizontalScrollIndicator={false}
+              scrollEnabled={false}
               horizontal
               data={fieldNames}
               keyExtractor={item => item.id}
@@ -139,12 +123,12 @@ const RegisterScreen = () => {
               }}
             />
             <View style={styles.lottieWrapper}>
-              <Lottie
+              {/* <Lottie
                 style={styles.lottie}
                 source={require('../../assets/lotties/foodies.json')}
                 autoPlay
                 // loop
-              />
+              /> */}
             </View>
             <View style={styles.bottomBar}>
               {index === 0 && (
@@ -160,7 +144,7 @@ const RegisterScreen = () => {
                   <Text style={styles.back}>BACK</Text>
                 </TouchableOpacity>
               )}
-              {showNextButton(errors) && touched && index < 4 && (
+              {showNextButton(index, errors, values) && touched && index < 4 && (
                 <TouchableOpacity
                   onPress={() => onPressNextHandler()}
                   style={styles.buttonContainer}>
@@ -170,9 +154,13 @@ const RegisterScreen = () => {
                   />
                 </TouchableOpacity>
               )}
-              {index === 4 && (
+              {showNextButton(index, errors, values) && touched && index === 4 && (
                 <TouchableOpacity disabled={!isValid} onPress={handleSubmit}>
-                  <Text style={styles.login}>CONFIRM AND LET ME IN</Text>
+                  <Animated.View
+                    entering={FlipInXUp.springify()}
+                    exiting={FlipOutXDown.springify()}>
+                    <Text style={styles.login}>CONFIRM AND LET ME IN</Text>
+                  </Animated.View>
                 </TouchableOpacity>
               )}
             </View>
@@ -208,7 +196,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-start',
     paddingHorizontal: perfectWidth(20),
-    backgroundColor: 'red',
   },
   bottomBar: {
     flexDirection: 'row',
@@ -236,7 +223,6 @@ const styles = StyleSheet.create({
   },
   lottieWrapper: {
     flex: 1,
-    backgroundColor: 'red',
     justifyContent: 'center',
     alignItems: 'center',
   },
