@@ -7,10 +7,10 @@ import {
   ListRenderItemInfo,
 } from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
-import {Formik, validateYupSchema} from 'formik';
+import {Formik} from 'formik';
 import {useDispatch} from 'react-redux';
-import Lottie from 'lottie-react-native';
-import Animated, {FlipInXUp, FlipOutXDown} from 'react-native-reanimated';
+// import Lottie from 'lottie-react-native';
+// import Animated, {FlipInXUp, FlipOutXDown} from 'react-native-reanimated';
 
 import {
   perfectFontSize,
@@ -156,11 +156,7 @@ const RegisterScreen = () => {
               )}
               {showNextButton(index, errors, values) && touched && index === 4 && (
                 <TouchableOpacity disabled={!isValid} onPress={handleSubmit}>
-                  <Animated.View
-                    entering={FlipInXUp.springify()}
-                    exiting={FlipOutXDown.springify()}>
-                    <Text style={styles.login}>CONFIRM AND LET ME IN</Text>
-                  </Animated.View>
+                  <Text style={styles.login}>CONFIRM AND LET ME IN</Text>
                 </TouchableOpacity>
               )}
             </View>
@@ -175,7 +171,7 @@ export default RegisterScreen;
 
 const styles = StyleSheet.create({
   label: {
-    fontFamily: 'FranklinGothic',
+    fontFamily: 'FranklinGothicDemi',
     color: 'black',
     fontSize: perfectFontSize(20),
     marginVertical: 10,
@@ -207,13 +203,13 @@ const styles = StyleSheet.create({
   },
   login: {
     fontSize: perfectFontSize(18),
-    fontFamily: 'FranklinGothic',
+    fontFamily: 'FranklinGothicDemi',
     color: 'blue',
     fontWeight: '100',
   },
   back: {
     fontSize: perfectFontSize(18),
-    fontFamily: 'FranklinGothic',
+    fontFamily: 'FranklinGothicDemi',
     fontWeight: '100',
     color: 'black',
   },

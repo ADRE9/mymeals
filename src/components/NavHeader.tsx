@@ -1,4 +1,4 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {perfectHeight} from '../utils/perfectSize';
 import Animated, {FlipInXUp, FlipOutXDown} from 'react-native-reanimated';
@@ -49,12 +49,8 @@ const styles = StyleSheet.create({
   },
   navHeader: {
     color: 'black',
-    fontFamily: 'FranklinGothic',
+    fontFamily: 'FranklinGothicHeavy',
     fontSize: 35,
-  },
-  login: {
-    fontFamily: 'FranklinGothic',
-    color: 'black',
   },
   lottieWrapper: {
     // // flex: 1,

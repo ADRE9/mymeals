@@ -2,60 +2,36 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "src/assets/fonts/fgwo____.ttf",
-      "sha1": "f84eb1f6140b0e959a4e70dfeebbe1b6098034a6"
+      "path": "src/assets/fonts/FranklinGothicCondDemi.ttf",
+      "sha1": "8f6c5b31ee254ce5f3f701f5b9b781941e56f7d3"
     },
     {
-      "path": "src/assets/fonts/FRANKGO.ttf",
-      "sha1": "eedfa8e8cf1041121baef109e3cee9930c547512"
+      "path": "src/assets/fonts/FranklinGothicCondMedium.ttf",
+      "sha1": "b7ca37f01d8c80281eb46e586637f723fdb656ff"
     },
     {
-      "path": "src/assets/fonts/Franklin Gothic Condensed.ttf",
-      "sha1": "eedfa8e8cf1041121baef109e3cee9930c547512"
+      "path": "src/assets/fonts/FranklinGothicDemi.ttf",
+      "sha1": "5eeac3e6e29c46e36464f5e886cddfe2832cb31c"
     },
     {
-      "path": "src/assets/fonts/FranklinGothic.ttf",
-      "sha1": "90125e06eba8706828db01fc7d36fa3d77e24397"
+      "path": "src/assets/fonts/FranklinGothicDemiItalic.ttf",
+      "sha1": "4ce0862bb6f2f90c528ab6ba292a7051bcc7fb49"
     },
     {
-      "path": "src/assets/fonts/FranklinGothicITALIC.ttf",
-      "sha1": "f84eb1f6140b0e959a4e70dfeebbe1b6098034a6"
+      "path": "src/assets/fonts/FranklinGothicHeavy.ttf",
+      "sha1": "e7b6de4de049cc369047501b5a5525560109f09f"
     },
     {
-      "path": "src/assets/fonts/GothicA1-Black.ttf",
-      "sha1": "5c4f8fee03d46cda4bef1aa199d045cebbdc432c"
+      "path": "src/assets/fonts/FranklinGothicHeavyItalic.ttf",
+      "sha1": "6df9eaea908af273b0877bd5b6cc2baf89404285"
     },
     {
-      "path": "src/assets/fonts/GothicA1-Bold.ttf",
-      "sha1": "8b39e91c3fd6aac90bd2f1b55516f2a8b3befebf"
+      "path": "src/assets/fonts/FranklinGothicMedium.ttf",
+      "sha1": "8e367c494ecc95424e0304f845521b189b2a2e67"
     },
     {
-      "path": "src/assets/fonts/GothicA1-ExtraBold.ttf",
-      "sha1": "3cc219ee9edc6734b90c04e2a287a71be23b97b1"
-    },
-    {
-      "path": "src/assets/fonts/GothicA1-ExtraLight.ttf",
-      "sha1": "2cb1fe867e59f946865b37eef7188bcc59fc4565"
-    },
-    {
-      "path": "src/assets/fonts/GothicA1-Light.ttf",
-      "sha1": "9511c87a7361772d02759c557d8e1e04556cd91d"
-    },
-    {
-      "path": "src/assets/fonts/GothicA1-Medium.ttf",
-      "sha1": "5171a85d3aa69d700484e8bbbb29d985d8efabc9"
-    },
-    {
-      "path": "src/assets/fonts/GothicA1-Regular.ttf",
-      "sha1": "e038087309cae26259a59a3a72aa09b27277e928"
-    },
-    {
-      "path": "src/assets/fonts/GothicA1-SemiBold.ttf",
-      "sha1": "b4afaa459270aa2633efab41f5385bacd0c28dcb"
-    },
-    {
-      "path": "src/assets/fonts/GothicA1-Thin.ttf",
-      "sha1": "03918e587866c3637d1cde36f058541e919fc694"
+      "path": "src/assets/fonts/FranklinGothicMediumItalic.ttf",
+      "sha1": "455dcab05672ec755863f68416194d7f4959f71a"
     }
   ]
 }

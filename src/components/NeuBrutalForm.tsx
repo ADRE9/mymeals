@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View, TextInput} from 'react-native';
-import React from 'react';
+import React, {useCallback} from 'react';
 
 type Props = {
   handleChange: any,
@@ -11,6 +11,20 @@ type Props = {
 };
 
 const NeuBrutalForm = (props: Props) => {
+  const decideSecureEntry = useCallback(() => {
+    return props.field === 'password' || props.field === 'confirmPassword'
+      ? true
+      : false;
+  }, [props.field]);
+
+  const decideKeyboardType = useCallback(() => {
+    return props.field === 'phoneNumber'
+      ? 'phone-pad'
+      : props.field === 'email'
+      ? 'email-address'
+      : 'default';
+  }, [props.field]);
+
   return (
     <>
       <View style={styles.inputContainer}>
@@ -19,11 +33,8 @@ const NeuBrutalForm = (props: Props) => {
           onBlur={props.handleBlur(`${props.field}`)}
           value={props.values[`${props.field}`]}
           style={styles.textInput}
-          secureTextEntry={
-            props.field === 'password' || props.field === 'confirmPassword'
-              ? true
-              : false
-          }
+          secureTextEntry={decideSecureEntry()}
+          keyboardType={decideKeyboardType()}
         />
       </View>
       {props.errors[`${props.field}`] && props.touched[`${props.field}`] && (
@@ -59,7 +70,7 @@ const styles = StyleSheet.create({
     shadowColor: 'black',
     shadowOpacity: 1,
     backgroundColor: 'white',
-    fontFamily: 'FranklinGothic',
+    fontFamily: 'FranklinGothicMedium',
     paddingHorizontal: 10,
   },
   warning: {
