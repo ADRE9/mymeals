@@ -1,5 +1,5 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React, {useCallback, useMemo, useRef, useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 import {useSelector} from 'react-redux';
 
 import {User, Cross} from 'svg';
@@ -94,7 +94,7 @@ const HomeScreen = ({navigation}: Props) => {
 
   return (
     <View style={styles.backView}>
-      <Menu userData={userData} />
+      <Menu showMenu={showMenu} userData={userData} />
       <Animated.View style={[styles.animatedView, mainPageStyles]}>
         <ScrollScreen paddingHorizontal={perfectWidth(20)}>
           <View style={styles.topView}>

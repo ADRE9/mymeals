@@ -1,14 +1,23 @@
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import React from 'react';
-import {IUser} from '../types/types';
+import React, {useCallback, useEffect} from 'react';
+
 import {
   perfectFontSize,
   perfectHeight,
   perfectWidth,
 } from '../utils/perfectSize';
 
+import {IUser} from '../types/types';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withDelay,
+  withSpring,
+} from 'react-native-reanimated';
+
 type Props = {
   userData: IUser,
+  showMenu: boolean,
 };
 
 const colorPalette = [
@@ -29,8 +38,32 @@ const ColorPalette = (props: {hex: any, color: string}) => {
 };
 
 const Menu = (props: Props) => {
+  const opacity = useSharedValue(0);
+  const right = useSharedValue(-100);
+
+  const animatedMenuStyles = useAnimatedStyle(() => {
+    return {
+      opacity: opacity.value,
+      right: right.value,
+    };
+  }, [props.showMenu]);
+
+  const toggleMenu = useCallback(() => {
+    if (props.showMenu) {
+      opacity.value = withDelay(300, withSpring(1));
+      right.value = withDelay(300, withSpring(0));
+      return;
+    }
+    opacity.value = withSpring(0);
+    right.value = withSpring(-100);
+  }, [opacity, props.showMenu, right]);
+
+  useEffect(() => {
+    toggleMenu();
+  }, [props.showMenu, toggleMenu]);
+
   return (
-    <View style={styles.menuWrapper}>
+    <Animated.View style={[styles.menuWrapper, animatedMenuStyles]}>
       <View style={styles.blankView} />
       <View style={styles.menuView}>
         <Text style={styles.hiText}>Hi!</Text>
@@ -48,7 +81,7 @@ const Menu = (props: Props) => {
         </View>
         <View />
       </View>
-    </View>
+    </Animated.View>
   );
 };
 
