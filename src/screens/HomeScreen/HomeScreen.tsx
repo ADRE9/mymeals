@@ -57,8 +57,8 @@ const HomeScreen = ({navigation}: Props) => {
 
   const mainPageStyles = useAnimatedStyle(() => {
     return {
-      top: withTiming(top.value, {duration: 500}),
-      right: withTiming(right.value, {duration: 500}),
+      top: withSpring(top.value),
+      right: withSpring(right.value),
       borderRadius: withTiming(borderRadius.value, {duration: 500}),
     };
   }, [showMenu]);

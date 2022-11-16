@@ -15,7 +15,7 @@ const colorPalette = [
   {color: 'Emerald', hex: '#CB6FF6'},
   {color: 'Ocean', hex: '#759CFF'},
   {color: 'XDA Fan', hex: '#3A3A3A'},
-  // {color: 'Classic Black', hex: '#ffffff'},
+  {color: 'Classic Black', hex: '#000000'},
   {color: 'Deja Vu', hex: '#37D5D6'},
 ];
 
@@ -37,7 +37,7 @@ const Menu = (props: Props) => {
         <Text style={styles.nameText}>{props.userData.name}</Text>
         <Text style={styles.contactText}>{props.userData.phoneNumber}</Text>
         <Text style={styles.contactText}>{props.userData.email}</Text>
-        <Text style={styles.changeThemeText}>Change Theme</Text>
+        <Text style={styles.changeThemeText}>Change Colors</Text>
         <Text style={styles.changeThemeSubText}>
           Don't Like the colors ? Make it Monochromatic.
         </Text>
@@ -70,21 +70,18 @@ const styles = StyleSheet.create({
     marginHorizontal: perfectWidth(20),
   },
   hiText: {
-    // textAlign: 'right',
     color: 'white',
     fontFamily: 'FranklinGothicHeavy',
     fontSize: perfectFontSize(30),
   },
   nameText: {
-    // textAlign: 'right',
     color: 'white',
     fontFamily: 'FranklinGothicHeavy',
     fontSize: perfectFontSize(30),
-    paddingBottom: perfectHeight(10),
+    paddingBottom: perfectHeight(5),
   },
   contactText: {
     color: 'white',
-    // textAlign: 'right',
     fontFamily: 'FranklinGothicDemi',
     fontSize: perfectFontSize(15),
   },
@@ -109,6 +106,8 @@ const styles = StyleSheet.create({
     width: perfectHeight(25),
     height: perfectHeight(25),
     borderRadius: perfectHeight(13),
+    borderWidth: 1,
+    borderColor: 'white',
   },
   paletteView: {
     paddingTop: perfectHeight(30),
