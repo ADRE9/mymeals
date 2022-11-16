@@ -24,12 +24,14 @@ import Animated, {
 } from 'react-native-reanimated';
 import {windowWidth} from '../../utils/dimensions';
 import Menu from '../../components/Menu';
+import AddMeal from '../../components/AddMeal';
+import showInitialDates from '../../utils/showInitialDate';
 
 interface Props {
   navigation: any;
 }
 
-const INITIAL_DATE = '2022-07-06';
+const INITIAL_DATE = showInitialDates();
 
 const HomeScreen = ({navigation}: Props) => {
   const userData: IUser = useSelector((state: RootState) => state.user);
@@ -43,7 +45,7 @@ const HomeScreen = ({navigation}: Props) => {
   // const [currentMonth, setCurrentMonth] = useState(INITIAL_DATE);
 
   const getDate = (count: number) => {
-    const date = new Date(INITIAL_DATE);
+    const date = new Date(showInitialDates());
     const newDate = date.setDate(date.getDate() + count);
     return CalendarUtils.getCalendarDateString(newDate);
   };
@@ -57,8 +59,8 @@ const HomeScreen = ({navigation}: Props) => {
 
   const mainPageStyles = useAnimatedStyle(() => {
     return {
-      top: withSpring(top.value),
-      right: withSpring(right.value),
+      top: withTiming(top.value, {duration: 500}),
+      right: withTiming(right.value, {duration: 500}),
       borderRadius: withTiming(borderRadius.value, {duration: 500}),
     };
   }, [showMenu]);
@@ -162,10 +164,7 @@ const HomeScreen = ({navigation}: Props) => {
             hideArrows={true}
             onDayPress={onDayPress}
           />
-          <MealCard mealType="Breakfast" />
-          <MealCard />
-          <MealCard />
-          <MealCard />
+          <AddMeal />
         </ScrollScreen>
       </Animated.View>
     </View>

@@ -1,5 +1,11 @@
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React, {useCallback, useEffect} from 'react';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withDelay,
+  withSpring,
+} from 'react-native-reanimated';
 
 import {
   perfectFontSize,
@@ -8,12 +14,8 @@ import {
 } from '../utils/perfectSize';
 
 import {IUser} from '../types/types';
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withDelay,
-  withSpring,
-} from 'react-native-reanimated';
+
+import {windowWidth} from '../utils/dimensions';
 
 type Props = {
   userData: IUser,
@@ -39,7 +41,7 @@ const ColorPalette = (props: {hex: any, color: string}) => {
 
 const Menu = (props: Props) => {
   const opacity = useSharedValue(0);
-  const right = useSharedValue(-100);
+  const right = useSharedValue(windowWidth / 2);
 
   const animatedMenuStyles = useAnimatedStyle(() => {
     return {
@@ -55,7 +57,7 @@ const Menu = (props: Props) => {
       return;
     }
     opacity.value = withSpring(0);
-    right.value = withSpring(-100);
+    right.value = withSpring(windowWidth / 2);
   }, [opacity, props.showMenu, right]);
 
   useEffect(() => {
@@ -76,10 +78,15 @@ const Menu = (props: Props) => {
         </Text>
         <View style={styles.paletteView}>
           {colorPalette.map(item => {
-            return <ColorPalette color={item.color} hex={item.hex} />;
+            return (
+              <ColorPalette key={item.hex} color={item.color} hex={item.hex} />
+            );
           })}
         </View>
-        <View />
+        <View style={styles.emptyView} />
+        <TouchableOpacity>
+          <Text style={styles.logout}>LOGOUT</Text>
+        </TouchableOpacity>
       </View>
     </Animated.View>
   );
@@ -151,5 +158,15 @@ const styles = StyleSheet.create({
     fontSize: perfectFontSize(15),
     paddingLeft: perfectWidth(20),
     fontFamily: 'FranklinGothicHeavy',
+  },
+  emptyView: {
+    flex: 1,
+  },
+  logout: {
+    flexDirection: 'row',
+    color: 'white',
+    paddingLeft: perfectWidth(20),
+    fontFamily: 'FranklinGothicDemi',
+    fontSize: perfectFontSize(15),
   },
 });

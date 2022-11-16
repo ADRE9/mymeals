@@ -3,3 +3,7 @@ export {default as User} from './User.svg';
 export {default as RightArrowCircle} from './RightArrowCircle.svg';
 export {default as Home} from './Home.svg';
 export {default as Cross} from './Cross.svg';
+export {default as Add} from './Add.svg';
+export {default as Lunch} from './Lunch.svg';
+export {default as Breakfast} from './Breakfast.svg';
+export {default as Dinner} from './Dinner.svg';

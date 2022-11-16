@@ -2,6 +2,8 @@ import {createSlice, createEntityAdapter} from '@reduxjs/toolkit';
 
 import type {ICalendarDate} from '../../../types/Calendar';
 
+const MEALTYPES = ['Breakfast', 'Lunch', 'Dinner'];
+
 const mealsAdapter = createEntityAdapter({
   selectId: (meal: ICalendarDate) => meal.id,
   sortComparer: (a: ICalendarDate, b: ICalendarDate) =>
@@ -12,6 +14,7 @@ const mealSlice = createSlice({
   name: 'meals',
   initialState: mealsAdapter.getInitialState({
     loading: 'idle',
+    mealTypes: MEALTYPES,
   }),
   reducers: {
     mealAdded: mealsAdapter.addOne,

@@ -29,9 +29,7 @@ const ScrollScreen = (props: Props) => {
 const styles = StyleSheet.create({
   scrollView: {
     position: 'relative',
-    flex: 1,
-    // paddingTop: 10,
-    // paddingHorizontal: '5%',
+    // flex: 1,
   },
 });
 export default ScrollScreen;

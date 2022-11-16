@@ -10,6 +10,7 @@ const initialState: IUser = {
   mealProvider: null,
   phoneNumber: null,
   isEmailVerified: null,
+  userExists: null,
   isPhNumVerified: null,
   isLoggedIn: null,
 };
@@ -24,6 +25,7 @@ const userSlice = createSlice({
       state.email = action.payload.email;
       state.phoneNumber = action.payload.phoneNumber;
       state.password = action.payload.password;
+      state.userExists = true;
     },
     loginUser: (state, action) => {
       state.isLoggedIn = true;
@@ -31,7 +33,6 @@ const userSlice = createSlice({
     },
     logoutUser: (state, action) => {
       state.isLoggedIn = false;
-      state = initialState;
     },
   },
 });
