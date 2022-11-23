@@ -16,6 +16,7 @@ import Routes from './src/navigation/Routes';
 import {storage} from './src/utils/storage';
 import {PersistGate} from 'redux-persist/integration/react';
 import storeProvider from './src/redux/store/store';
+import {gestureHandlerRootHOC} from 'react-native-gesture-handler';
 
 const App = () => {
   useEffect(() => {
@@ -57,4 +58,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default gestureHandlerRootHOC(App);

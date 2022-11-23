@@ -19,7 +19,7 @@ const arr = [
 const AddMeal = (props: Props) => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
-  const addButtontranslateX = useSharedValue('0deg');
+  const addButtontranslateX = useSharedValue(0);
   const translate = useSharedValue(0);
   const opacity = useSharedValue(1);
   const buttonBorderRadius = useSharedValue(0);
@@ -27,11 +27,16 @@ const AddMeal = (props: Props) => {
   const animatedAddButtonStyles = useAnimatedStyle(() => {
     return {
       transform: [
-        {rotate: withTiming(addButtontranslateX.value, {duration: 200})},
+        {
+          rotate: withTiming(`${addButtontranslateX.value}deg`, {
+            duration: 200,
+          }),
+        },
       ],
       borderRadius: withTiming(buttonBorderRadius.value, {duration: 200}),
     };
   }, [showMenu]);
+
   const animatedBreakfastButtonStyles = useAnimatedStyle(() => {
     return {
       transform: [{translateX: withTiming(-translate.value, {duration: 200})}],
@@ -57,14 +62,14 @@ const AddMeal = (props: Props) => {
   const toggleMenu = useCallback(() => {
     if (!showMenu) {
       setShowMenu(true);
-      addButtontranslateX.value = '45deg';
+      addButtontranslateX.value = 45;
       buttonBorderRadius.value = perfectHeight(22.5);
       translate.value = perfectHeight(50);
       opacity.value = 1;
       return;
     }
     setShowMenu(false);
-    addButtontranslateX.value = '0deg';
+    addButtontranslateX.value = 0;
     buttonBorderRadius.value = perfectHeight(0);
     translate.value = 0;
     opacity.value = 1;

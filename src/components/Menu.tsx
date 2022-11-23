@@ -6,16 +6,18 @@ import Animated, {
   withDelay,
   withSpring,
 } from 'react-native-reanimated';
+import {useDispatch} from 'react-redux';
 
 import {
   perfectFontSize,
   perfectHeight,
   perfectWidth,
 } from '../utils/perfectSize';
+import {windowWidth} from '../utils/dimensions';
+import SlideToDoAction from './SlideToDoAction';
+import {logoutUser} from '../redux/slices/user/userSlice';
 
 import {IUser} from '../types/types';
-
-import {windowWidth} from '../utils/dimensions';
 
 type Props = {
   userData: IUser,
@@ -42,6 +44,8 @@ const ColorPalette = (props: {hex: any, color: string}) => {
 const Menu = (props: Props) => {
   const opacity = useSharedValue(0);
   const right = useSharedValue(windowWidth / 2);
+
+  const dispatch = useDispatch();
 
   const animatedMenuStyles = useAnimatedStyle(() => {
     return {
@@ -84,9 +88,11 @@ const Menu = (props: Props) => {
           })}
         </View>
         <View style={styles.emptyView} />
-        <TouchableOpacity>
-          <Text style={styles.logout}>LOGOUT</Text>
-        </TouchableOpacity>
+        <SlideToDoAction
+          actionName="LOGOUT"
+          dispatch={dispatch}
+          action={logoutUser}
+        />
       </View>
     </Animated.View>
   );
@@ -107,7 +113,8 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: perfectHeight(30),
     paddingLeft: perfectWidth(20),
-    marginHorizontal: perfectWidth(20),
+    marginHorizontal: perfectWidth(10),
+    paddingBottom: perfectHeight(30),
   },
   hiText: {
     color: 'white',

@@ -34,15 +34,14 @@ interface Props {
 const INITIAL_DATE = showInitialDates();
 
 const HomeScreen = ({navigation}: Props) => {
-  const userData: IUser = useSelector((state: RootState) => state.user);
   const [showMenu, setShowMenu] = useState<boolean>(false);
+  const [selected, setSelected] = useState(INITIAL_DATE);
 
   const top = useSharedValue(0);
   const right = useSharedValue(0);
   const borderRadius = useSharedValue(0);
 
-  const [selected, setSelected] = useState(INITIAL_DATE);
-  // const [currentMonth, setCurrentMonth] = useState(INITIAL_DATE);
+  const userData: IUser = useSelector((state: RootState) => state.user);
 
   const getDate = (count: number) => {
     const date = new Date(showInitialDates());

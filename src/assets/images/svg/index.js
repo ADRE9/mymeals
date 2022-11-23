@@ -7,3 +7,4 @@ export {default as Add} from './Add.svg';
 export {default as Lunch} from './Lunch.svg';
 export {default as Breakfast} from './Breakfast.svg';
 export {default as Dinner} from './Dinner.svg';
+export {default as SwipeRightArrow} from './SwipeRightArrow.svg';
