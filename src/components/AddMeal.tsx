@@ -9,17 +9,16 @@ import Animated, {
 import {Add, Dinner, Breakfast, Lunch} from '../assets/images/svg';
 import {perfectHeight} from '../utils/perfectSize';
 
-type Props = {};
 const arr = [
   <Dinner height={perfectHeight(45)} />,
   <Lunch height={perfectHeight(45)} />,
   <Breakfast height={perfectHeight(45)} />,
 ];
 
-const AddMeal = (props: Props) => {
+const AddMeal = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
-  const addButtontranslateX = useSharedValue(0);
+  const addButtonRotate = useSharedValue(0);
   const translate = useSharedValue(0);
   const opacity = useSharedValue(1);
   const buttonBorderRadius = useSharedValue(0);
@@ -28,7 +27,7 @@ const AddMeal = (props: Props) => {
     return {
       transform: [
         {
-          rotate: withTiming(`${addButtontranslateX.value}deg`, {
+          rotate: withTiming(`${addButtonRotate.value}deg`, {
             duration: 200,
           }),
         },
@@ -62,18 +61,18 @@ const AddMeal = (props: Props) => {
   const toggleMenu = useCallback(() => {
     if (!showMenu) {
       setShowMenu(true);
-      addButtontranslateX.value = 45;
+      addButtonRotate.value = 45;
       buttonBorderRadius.value = perfectHeight(22.5);
-      translate.value = perfectHeight(50);
+      translate.value = perfectHeight(60);
       opacity.value = 1;
       return;
     }
     setShowMenu(false);
-    addButtontranslateX.value = 0;
+    addButtonRotate.value = 0;
     buttonBorderRadius.value = perfectHeight(0);
     translate.value = 0;
     opacity.value = 1;
-  }, [showMenu, addButtontranslateX, buttonBorderRadius, translate, opacity]);
+  }, [showMenu, addButtonRotate, buttonBorderRadius, translate, opacity]);
 
   const returnStyles = (index: number) => {
     if (index === 0) {
@@ -87,8 +86,7 @@ const AddMeal = (props: Props) => {
 
   return (
     <View style={styles.buttonContainer}>
-      <Animated.View
-        style={[styles.animatedAddViewContainer, animatedAddButtonStyles]}>
+      <Animated.View style={[styles.addViewContainer, animatedAddButtonStyles]}>
         <TouchableOpacity onPress={() => toggleMenu()} style={styles.button}>
           <Add height={perfectHeight(45)} />
         </TouchableOpacity>
@@ -96,12 +94,11 @@ const AddMeal = (props: Props) => {
       {arr.map((item, index) => {
         return (
           <Animated.View
-            style={[styles.animatedMealViewContainer, returnStyles(index)]}>
+            style={[styles.mealViewContainer, returnStyles(index)]}>
             <TouchableOpacity style={styles.button}>{item}</TouchableOpacity>
           </Animated.View>
         );
       })}
-      {/* <View style={styles.cont} /> */}
     </View>
   );
 };
@@ -113,15 +110,16 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: '100%',
     justifyContent: 'center',
-    height: perfectHeight(95),
+    height: perfectHeight(105),
     flexDirection: 'row',
   },
-  animatedMealViewContainer: {
+  mealViewContainer: {
     position: 'absolute',
     backgroundColor: 'black',
     height: perfectHeight(45),
     width: perfectHeight(45),
     zIndex: 3,
+    elevation: 2,
   },
   button: {
     height: perfectHeight(45),
@@ -129,11 +127,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  animatedAddViewContainer: {
-    // position: 'absolute',
+  addViewContainer: {
     backgroundColor: 'black',
     zIndex: 4,
     height: perfectHeight(45),
     width: perfectHeight(45),
+    elevation: 3,
   },
 });

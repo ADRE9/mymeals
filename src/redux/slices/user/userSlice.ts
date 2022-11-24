@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {Alert} from 'react-native';
 
 //types
 import {IUser} from '../../../types/types';
@@ -28,6 +29,17 @@ const userSlice = createSlice({
       state.userExists = true;
     },
     loginUser: (state, action) => {
+      if (!state.userExists) {
+        Alert.alert('No User Exists , register Yourself first');
+      }
+      if (state.email !== action.payload.email) {
+        Alert.alert('Invalid Email or Password');
+        return;
+      }
+      if (state.password !== action.payload.password) {
+        Alert.alert('Invalid Email or Password');
+        return;
+      }
       state.isLoggedIn = true;
       state = action.payload;
     },

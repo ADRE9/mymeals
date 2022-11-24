@@ -26,12 +26,7 @@ const NavHeader = (props: Props) => {
         },
       ]}>
       <Text style={styles.navHeader}>{props.title}</Text>
-      <Animated.View
-        entering={FlipInXUp.springify()}
-        exiting={FlipOutXDown.springify()}
-        style={styles.lottieWrapper}>
-        {props.children}
-      </Animated.View>
+      <View>{props.children}</View>
     </View>
   );
 };
@@ -51,11 +46,5 @@ const styles = StyleSheet.create({
     color: 'black',
     fontFamily: 'FranklinGothicHeavy',
     fontSize: 35,
-  },
-  lottieWrapper: {
-    // // flex: 1,
-    // // justifyContent: 'center',
-    // // alignItems: 'center',
-    // borderWidth:1
   },
 });

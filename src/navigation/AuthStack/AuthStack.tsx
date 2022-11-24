@@ -1,9 +1,10 @@
-import {View, Text, Button, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Lottie from 'lottie-react-native';
 
 import RegisterScreen from '../../screens/RegisterScreen/RegisterScreen';
+import LoginScreen from '../../screens/LoginScreen/LoginScreen';
 import NavHeader from '../../components/NavHeader';
 
 import type {AuthStackParamList} from '../../types/navigationTypes';
@@ -19,6 +20,27 @@ const Stack = createNativeStackNavigator<AuthStackParamList>();
 const AuthStack = (props: Props) => {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="Login"
+        component={LoginScreen}
+        options={({navigation}) => ({
+          header: () => (
+            <NavHeader
+              backgroundColor="#FFF"
+              paddingRight={perfectWidth(20)}
+              paddingLeft={perfectWidth(20)}
+              paddingTop={perfectHeight(24)}
+              navigation={navigation}
+              title="LOGIN">
+              <Lottie
+                style={styles.lottie}
+                source={require('../../assets/lotties/foodies.json')}
+                autoPlay
+              />
+            </NavHeader>
+          ),
+        })}
+      />
       <Stack.Screen
         name="Register"
         component={RegisterScreen}

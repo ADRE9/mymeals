@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View} from 'react-native';
-import React, {useCallback} from 'react';
+import React from 'react';
 import {GestureDetector, Gesture} from 'react-native-gesture-handler';
 import Animated, {
   useSharedValue,
@@ -12,7 +12,6 @@ import Animated, {
 import {perfectHeight} from '../utils/perfectSize';
 import {windowWidth} from '../utils/dimensions';
 import {SwipeRightArrow} from '../assets/images/svg';
-import {useDispatch} from 'react-redux';
 
 type Props = {
   actionName: string,
@@ -34,20 +33,17 @@ const SlideToDoAction = (props: Props) => {
     return {
       transform: [
         {translateX: offsetX.value},
-        {scale: withSpring(isPressed.value ? 0.9 : 1)},
+        {scale: withSpring(isPressed.value ? 0.96 : 1)},
       ],
-      backgroundColor: isPressed.value ? 'yellow' : 'blue',
+      backgroundColor: isPressed.value ? 'gray' : 'black',
     };
   });
 
   const completeAction = () => {
     if (props.dispatch) {
-      console.log('I am running');
       props.dispatch(props.action());
       return;
     }
-    console.log('I am running');
-
     props.action();
   };
 
@@ -66,8 +62,6 @@ const SlideToDoAction = (props: Props) => {
       'worklet';
       isPressed.value = false;
       if (offsetX.value > FINALPOINT) {
-        console.log('I am inside if');
-
         offsetX.value = BOX_WIDTH;
         runOnJS(completeAction)();
         return;

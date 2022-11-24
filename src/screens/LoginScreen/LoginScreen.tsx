@@ -21,44 +21,34 @@ import Screen from '../../components/Screen';
 import NeuBrutalForm from '../../components/NeuBrutalForm';
 import {RightArrow} from 'svg';
 import {windowWidth} from '../../utils/dimensions';
-import signUpSchema from '../../utils/registerSchema';
-import {registerUser} from '../../redux/slices/user/userSlice';
+import loginSchema from '../../utils/loginSchema';
+import {loginUser} from '../../redux/slices/user/userSlice';
 import showNextButton from '../../utils/showNextButton';
-import {NavigationContainer} from '@react-navigation/native';
 
 interface IField {
   id: string;
   field: string;
   value: string;
 }
-export interface IFormValue {
-  name: string;
+export interface ILoginFormValue {
   email: string;
-  phoneNumber: string;
   password: string;
-  confirmPassword: string;
 }
 
 const fieldNames: IField[] = [
-  {id: '1', field: 'Name', value: 'name'},
-  {id: '2', field: 'Email', value: 'email'},
-  {id: '3', field: 'Phone Number', value: 'phoneNumber'},
-  {id: '4', field: 'Password', value: 'password'},
-  {id: '5', field: 'Confirm Password', value: 'confirmPassword'},
+  {id: '1', field: 'Email', value: 'email'},
+  {id: '2', field: 'Password', value: 'password'},
 ];
 
-const RegisterScreen = ({navigation}) => {
+const LoginScreen = ({navigation}) => {
   const aref = useRef<FlatList>(null);
   const [index, setIndex] = useState(0);
 
   const dispatch = useDispatch();
 
   const initialValues = {
-    name: '',
     email: '',
-    phoneNumber: '',
     password: '',
-    confirmPassword: '',
   };
 
   useEffect(() => {
@@ -79,15 +69,15 @@ const RegisterScreen = ({navigation}) => {
     setIndex(prev => prev - 1);
   };
 
-  const submitValues = (values: IFormValue) => {
-    dispatch(registerUser(values));
+  const submitValues = (values: ILoginFormValue) => {
+    dispatch(loginUser(values));
   };
 
   return (
     <Screen backgroundColor="#FFF">
       <Formik
         initialValues={initialValues}
-        validationSchema={signUpSchema}
+        validationSchema={loginSchema}
         onSubmit={values => submitValues(values)}>
         {({
           handleChange,
@@ -123,21 +113,13 @@ const RegisterScreen = ({navigation}) => {
                 );
               }}
             />
-            <View style={styles.lottieWrapper}>
-              {/* <Lottie
-                style={styles.lottie}
-                source={require('../../assets/lotties/foodies.json')}
-                autoPlay
-                // loop
-              /> */}
-            </View>
             <View style={styles.bottomBar}>
               {index === 0 && (
                 <View>
-                  <Text style={styles.back}>Already an user ?</Text>
+                  <Text style={styles.back}>New user ?</Text>
                   <TouchableOpacity
-                    onPress={() => navigation.navigate('Login')}>
-                    <Text style={styles.login}>LOGIN</Text>
+                    onPress={() => navigation.navigate('Register')}>
+                    <Text style={styles.login}>REGISTER</Text>
                   </TouchableOpacity>
                 </View>
               )}
@@ -146,9 +128,9 @@ const RegisterScreen = ({navigation}) => {
                   <Text style={styles.back}>BACK</Text>
                 </TouchableOpacity>
               )}
-              {showNextButton(index, errors, values, 'Register') &&
+              {showNextButton(index, errors, values, 'Login') &&
                 touched &&
-                index < 4 && (
+                index < 1 && (
                   <TouchableOpacity
                     onPress={() => onPressNextHandler()}
                     style={styles.buttonContainer}>
@@ -158,11 +140,11 @@ const RegisterScreen = ({navigation}) => {
                     />
                   </TouchableOpacity>
                 )}
-              {showNextButton(index, errors, values, 'Register') &&
+              {showNextButton(index, errors, values, 'Login') &&
                 touched &&
-                index === 4 && (
+                index === 1 && (
                   <TouchableOpacity disabled={!isValid} onPress={handleSubmit}>
-                    <Text style={styles.login}>CONFIRM AND LET ME IN</Text>
+                    <Text style={styles.login}>LOGIN</Text>
                   </TouchableOpacity>
                 )}
             </View>
@@ -173,7 +155,7 @@ const RegisterScreen = ({navigation}) => {
   );
 };
 
-export default RegisterScreen;
+export default LoginScreen;
 
 const styles = StyleSheet.create({
   label: {
