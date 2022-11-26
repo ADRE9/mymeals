@@ -1,7 +1,6 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {perfectHeight} from '../utils/perfectSize';
-import Animated, {FlipInXUp, FlipOutXDown} from 'react-native-reanimated';
 
 type Props = {
   title?: string | null,

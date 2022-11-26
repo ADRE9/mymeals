@@ -1,22 +1,22 @@
 import {createSlice, createEntityAdapter} from '@reduxjs/toolkit';
-import {myDarkTheme} from '../../../themes/myTheme';
+import {RootState} from '..';
 import {IDot} from '../../../types/Calendar';
 
 const DOTS = [
   {
-    id: 'Breakfast',
-    color: `${myDarkTheme['color-success-400']}`,
-    selectedDotColor: myDarkTheme['color-success-900'],
+    id: 'Breakfast1',
+    type: 'breakfast',
+    color: 'red',
   },
   {
-    id: 'Lunch',
-    color: myDarkTheme['color-info-400'],
-    selectedDotColor: myDarkTheme['color-info-900'],
+    id: 'Lunch1',
+    type: 'lunch',
+    color: 'green',
   },
   {
-    id: 'Dinner',
-    color: myDarkTheme['color-success-400'],
-    selectedDotColor: myDarkTheme['color-success-900'],
+    id: 'Dinner1',
+    type: 'dinner',
+    color: 'blue',
   },
 ];
 
@@ -41,4 +41,9 @@ const dotSlice = createSlice({
 });
 
 export const {addDot, removeDot, updateDot} = dotSlice.actions;
+export const dotSelectors = dotsAdapter.getSelectors(
+  (state: RootState) => state.dots,
+);
+
+export const selectDotsAdapter = (state: RootState) => state.dots;
 export default dotSlice.reducer;

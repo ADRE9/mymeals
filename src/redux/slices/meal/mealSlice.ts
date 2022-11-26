@@ -1,6 +1,13 @@
-import {createSlice, createEntityAdapter} from '@reduxjs/toolkit';
+import {
+  createSlice,
+  createEntityAdapter,
+  createSelector,
+} from '@reduxjs/toolkit';
+import {RootState} from '..';
 
 import type {ICalendarDate} from '../../../types/Calendar';
+import getMeals from '../../../utils/getMeals';
+import {selectDotsAdapter} from '../dots/dotSlice';
 
 const MEALTYPES = ['Breakfast', 'Lunch', 'Dinner'];
 
@@ -18,6 +25,7 @@ const mealSlice = createSlice({
   }),
   reducers: {
     mealAdded: mealsAdapter.addOne,
+    mealAddedOnSameDay: mealsAdapter.upsertOne,
     mealUpdated: mealsAdapter.updateOne,
     mealLoading(state, _) {
       if (state.loading === 'idle') {
@@ -34,6 +42,28 @@ const mealSlice = createSlice({
   },
 });
 
-export const {mealAdded, mealDeleted, mealLoaded, mealLoading, mealUpdated} =
-  mealSlice.actions;
+export const {
+  mealAdded,
+  mealDeleted,
+  mealAddedOnSameDay,
+  mealLoaded,
+  mealLoading,
+  mealUpdated,
+} = mealSlice.actions;
+
+export const {
+  selectAll: selectAllMeals,
+  selectById: selectMealsById,
+  selectEntities: selectMealsEntities,
+  selectIds: selectMealsIds,
+  selectTotal: selectTotalMeals,
+} = mealsAdapter.getSelectors();
+
+const selectMealsAdapter = (state: RootState) => state.meals;
+
+export const allMealsSelector = createSelector(
+  [selectMealsAdapter, selectDotsAdapter],
+  getMeals,
+);
+
 export default mealSlice.reducer;

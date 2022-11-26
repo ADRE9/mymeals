@@ -19,13 +19,14 @@ import MealCard from '../../components/MealCard';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
-  withSpring,
   withTiming,
 } from 'react-native-reanimated';
 import {windowWidth} from '../../utils/dimensions';
 import Menu from '../../components/Menu';
 import AddMeal from '../../components/AddMeal';
 import showInitialDates from '../../utils/showInitialDate';
+import {ICalendarData, IDot} from '../../types/Calendar';
+import {allMealsSelector} from '../../redux/slices/meal/mealSlice';
 
 interface Props {
   navigation: any;
@@ -35,19 +36,14 @@ const INITIAL_DATE = showInitialDates();
 
 const HomeScreen = ({navigation}: Props) => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  const [selected, setSelected] = useState(INITIAL_DATE);
+  const [selected, setSelected] = useState<string>(INITIAL_DATE);
 
   const top = useSharedValue(0);
   const right = useSharedValue(0);
   const borderRadius = useSharedValue(0);
 
-  const userData: IUser = useSelector((state: RootState) => state.user);
-
-  const getDate = (count: number) => {
-    const date = new Date(showInitialDates());
-    const newDate = date.setDate(date.getDate() + count);
-    return CalendarUtils.getCalendarDateString(newDate);
-  };
+  const user: IUser = useSelector((state: RootState) => state.user);
+  const mealData = useSelector(allMealsSelector);
 
   const onDayPress = useCallback(
     (day: {dateString: React.SetStateAction<string>}) => {
@@ -79,23 +75,18 @@ const HomeScreen = ({navigation}: Props) => {
   };
 
   const marked = useMemo(() => {
+    const selectedDate = mealData[selected];
     return {
-      [getDate(-1)]: {
-        dotColor: 'red',
-        marked: true,
-      },
       [selected]: {
         selected: true,
-        disableTouchEvent: true,
-        selectedColor: 'orange',
-        selectedTextColor: 'red',
+        ...selectedDate,
       },
     };
-  }, [selected]);
+  }, [mealData, selected]);
 
   return (
     <View style={styles.backView}>
-      <Menu showMenu={showMenu} userData={userData} />
+      <Menu showMenu={showMenu} userData={user} />
       <Animated.View style={[styles.animatedView, mainPageStyles]}>
         <ScrollScreen paddingHorizontal={perfectWidth(20)}>
           <View style={styles.topView}>
@@ -108,13 +99,13 @@ const HomeScreen = ({navigation}: Props) => {
               )}
             </TouchableOpacity>
           </View>
-          <Text style={styles.greet}>Hi {userData.name} !</Text>
+          <Text style={styles.greet}>Hi {user.name} !</Text>
           <Text style={styles.date}>{showDates()}</Text>
           <Calendar
             style={styles.calendar}
-            current={INITIAL_DATE}
+            current={selected}
+            marked={true}
             enableSwipeMonths
-            // displayLoadingIndicator
             markingType={'multi-dot'}
             hideExtraDays
             theme={{
@@ -122,14 +113,14 @@ const HomeScreen = ({navigation}: Props) => {
               textSectionTitleColor: 'white',
               textSectionTitleDisabledColor: 'gray',
               dayTextColor: 'white',
-              todayTextColor: 'orange',
-              selectedDayTextColor: 'orange',
+              todayTextColor: '#00AAAF',
+              selectedDayTextColor: '#00AAAF',
               monthTextColor: 'white',
               indicatorColor: 'white',
               textDayFontFamily: 'FranklinGothicHeavy',
               selectedDayBackgroundColor: '#eeeeee',
               arrowColor: 'white',
-              // textDisabledColor: 'red',
+              // textDisabledColor: 'gray',
               stylesheet: {
                 calendar: {
                   header: {
@@ -144,26 +135,11 @@ const HomeScreen = ({navigation}: Props) => {
               },
             }}
             firstDay={1}
-            // markedDates={{
-            //   [getDate(2)]: {
-            //     selected: true,
-            //     dots: [
-            //       {key: 'vacation', color: 'blue', selectedDotColor: 'red'},
-            //       {key: 'massage', color: 'red', selectedDotColor: 'white'},
-            //     ],
-            //   },
-            //   [getDate(3)]: {
-            //     disabled: true,
-            //     dots: [
-            //       {key: 'vacation', color: 'green', selectedDotColor: 'red'},
-            //       {key: 'massage', color: 'red', selectedDotColor: 'green'},
-            //     ],
-            //   },
-            // }}
+            markedDates={marked}
             hideArrows={true}
             onDayPress={onDayPress}
           />
-          <AddMeal />
+          <AddMeal selectedDay={selected} />
         </ScrollScreen>
       </Animated.View>
     </View>
@@ -195,7 +171,6 @@ const styles = StyleSheet.create({
     fontFamily: 'FranklinGothicHeavy',
     color: 'black',
     fontSize: perfectFontSize(50),
-    // marginVertical: 10,
   },
   topView: {
     flexDirection: 'row',
@@ -205,6 +180,7 @@ const styles = StyleSheet.create({
   calendar: {
     marginVertical: perfectHeight(30),
     borderRadius: perfectFontSize(10),
+    overflow: 'hidden',
   },
   backView: {
     flex: 1,
@@ -218,3 +194,9 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
 });
+
+// const getDate = (count: number) => {
+//   const date = new Date(showInitialDates());
+//   const newDate = date.setDate(date.getDate() + count);
+//   return CalendarUtils.getCalendarDateString(newDate);
+// };
