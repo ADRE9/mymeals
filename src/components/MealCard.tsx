@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React, {useCallback} from 'react';
-import Animated, {FadeInDown, FadeInUp} from 'react-native-reanimated';
+import Animated, {FadeInDown} from 'react-native-reanimated';
 
 import {
   perfectFontSize,
@@ -61,7 +61,7 @@ const MealCard = (props: Props) => {
   return (
     <Animated.View
       entering={FadeInDown}
-      exiting={FadeInUp}
+      exiting={FadeInDown}
       style={styles.neuWrapper}>
       <View
         style={{
