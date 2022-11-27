@@ -26,6 +26,7 @@ const mealSlice = createSlice({
   reducers: {
     mealAdded: mealsAdapter.addOne,
     mealAddedOnSameDay: mealsAdapter.upsertOne,
+    mealRemoved: mealsAdapter.upsertOne,
     mealUpdated: mealsAdapter.updateOne,
     mealLoading(state, _) {
       if (state.loading === 'idle') {
@@ -57,7 +58,7 @@ export const {
   selectEntities: selectMealsEntities,
   selectIds: selectMealsIds,
   selectTotal: selectTotalMeals,
-} = mealsAdapter.getSelectors();
+} = mealsAdapter.getSelectors((state: RootState) => state.meals);
 
 const selectMealsAdapter = (state: RootState) => state.meals;
 

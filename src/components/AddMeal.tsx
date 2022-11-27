@@ -3,6 +3,7 @@ import React, {useCallback, useState} from 'react';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
+  withSpring,
   withTiming,
 } from 'react-native-reanimated';
 
@@ -14,13 +15,8 @@ import {ICalendarData} from '../types/Calendar';
 import {RootState} from '../redux/slices';
 import generateMeal from '../utils/generateMeal';
 import generateDay from '../utils/generateDay';
-import dotSlice, {
-  selectAllDots,
-  selectDotsEntities,
-  selectAll,
-  dotSelectors,
-  addDot,
-} from '../redux/slices/dots/dotSlice';
+import {dotSelectors} from '../redux/slices/dots/dotSlice';
+import {EntityId} from '@reduxjs/toolkit/dist/entities/models';
 
 interface Props {
   selectedDay: string;
@@ -38,7 +34,6 @@ const AddMeal = ({selectedDay}: Props) => {
   const meals: ICalendarData = useSelector(
     (state: RootState) => state.meals.entities,
   );
-  const dotsArray: string[] = useSelector(dotSelectors.selectIds);
 
   const dispatch = useDispatch();
 
@@ -46,6 +41,7 @@ const AddMeal = ({selectedDay}: Props) => {
   const translate = useSharedValue(0);
   const opacity = useSharedValue(1);
   const buttonBorderRadius = useSharedValue(0);
+  const containerHeight = useSharedValue(perfectHeight(45));
 
   const animatedAddButtonStyles = useAnimatedStyle(() => {
     return {
@@ -81,6 +77,11 @@ const AddMeal = ({selectedDay}: Props) => {
       opacity: withTiming(opacity.value, {duration: 200}),
     };
   }, [showMenu]);
+  const animatedButtonContainer = useAnimatedStyle(() => {
+    return {
+      height: withSpring(containerHeight.value),
+    };
+  }, [showMenu]);
 
   const toggleMenu = useCallback(() => {
     if (!showMenu) {
@@ -89,6 +90,7 @@ const AddMeal = ({selectedDay}: Props) => {
       buttonBorderRadius.value = perfectHeight(22.5);
       translate.value = perfectHeight(60);
       opacity.value = 1;
+      containerHeight.value = perfectHeight(105);
       return;
     }
     setShowMenu(false);
@@ -96,7 +98,15 @@ const AddMeal = ({selectedDay}: Props) => {
     buttonBorderRadius.value = perfectHeight(0);
     translate.value = 0;
     opacity.value = 1;
-  }, [showMenu, addButtonRotate, buttonBorderRadius, translate, opacity]);
+    containerHeight.value = perfectHeight(45);
+  }, [
+    showMenu,
+    addButtonRotate,
+    buttonBorderRadius,
+    translate,
+    opacity,
+    containerHeight,
+  ]);
 
   const returnStyles = (index: number) => {
     if (index === 0) {
@@ -111,12 +121,7 @@ const AddMeal = ({selectedDay}: Props) => {
   const handleMealClick = useCallback(
     (index: number) => {
       if (meals[selectedDay]) {
-        const dayData = generateMeal(
-          meals[selectedDay],
-          index,
-          dotsArray,
-          dispatch,
-        );
+        const dayData = generateMeal(meals[selectedDay], index, dispatch);
         const updatedData = {
           ...meals[selectedDay],
           dots: [...meals[selectedDay].dots, dayData],
@@ -131,7 +136,7 @@ const AddMeal = ({selectedDay}: Props) => {
   );
 
   return (
-    <View style={styles.buttonContainer}>
+    <Animated.View style={[styles.buttonContainer, animatedButtonContainer]}>
       <Animated.View style={[styles.addViewContainer, animatedAddButtonStyles]}>
         <TouchableOpacity onPress={() => toggleMenu()} style={styles.button}>
           <Add height={perfectHeight(45)} />
@@ -149,7 +154,7 @@ const AddMeal = ({selectedDay}: Props) => {
           </Animated.View>
         );
       })}
-    </View>
+    </Animated.View>
   );
 };
 
@@ -160,7 +165,6 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: '100%',
     justifyContent: 'center',
-    height: perfectHeight(105),
     flexDirection: 'row',
   },
   mealViewContainer: {

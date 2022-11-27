@@ -84,6 +84,46 @@ const HomeScreen = ({navigation}: Props) => {
     };
   }, [mealData, selected]);
 
+  const renderMealCard = useCallback(() => {
+    let breakfast = 0;
+    let lunch = 0;
+    let dinner = 0;
+    if (!mealData[selected]) {
+      return null;
+    }
+
+    mealData[selected].dots.map((dot: IDot) => {
+      if (dot.type === 'breakfast') {
+        breakfast = breakfast + 1;
+      }
+      if (dot.type === 'lunch') {
+        lunch = lunch + 1;
+      }
+      if (dot.type === 'dinner') {
+        dinner = dinner + 1;
+      }
+    });
+    console.log('Dots', mealData[selected].dots);
+    console.log(breakfast, lunch, dinner);
+    return (
+      <View style={styles.cardViews}>
+        {breakfast !== 0 && (
+          <MealCard
+            selectedDay={selected}
+            type="breakfast"
+            quantity={breakfast}
+          />
+        )}
+        {lunch !== 0 && (
+          <MealCard selectedDay={selected} type="lunch" quantity={lunch} />
+        )}
+        {dinner !== 0 && (
+          <MealCard selectedDay={selected} type="dinner" quantity={dinner} />
+        )}
+      </View>
+    );
+  }, [mealData, selected]);
+
   return (
     <View style={styles.backView}>
       <Menu showMenu={showMenu} userData={user} />
@@ -140,6 +180,7 @@ const HomeScreen = ({navigation}: Props) => {
             onDayPress={onDayPress}
           />
           <AddMeal selectedDay={selected} />
+          {renderMealCard()}
         </ScrollScreen>
       </Animated.View>
     </View>
@@ -192,6 +233,9 @@ const styles = StyleSheet.create({
     height: '100%',
     overflow: 'hidden',
     zIndex: 2,
+  },
+  cardViews: {
+    marginTop: perfectHeight(30),
   },
 });
 

@@ -27,7 +27,6 @@ const FINALPOINT = BOX_WIDTH - EXTRA_OFFSET;
 const SlideToDoAction = (props: Props) => {
   const isPressed = useSharedValue(false);
   const offsetX = useSharedValue(INITIAL_POINT);
-  // const [showText, setShowText] = useState(true);
 
   const animatedStyles = useAnimatedStyle(() => {
     return {

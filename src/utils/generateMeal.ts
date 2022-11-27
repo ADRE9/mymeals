@@ -1,12 +1,8 @@
 import {addDot} from '../redux/slices/dots/dotSlice';
 import {ICalendarDate} from '../types/Calendar';
 
-const generateMeal = (
-  meal: ICalendarDate,
-  mealType: number,
-  dotsArray: string[],
-  dispatch: any,
-) => {
+const generateMeal = (meal: ICalendarDate, mealType: number, dispatch: any) => {
+  console.log('Iam running', meal);
   if (mealType === 0) {
     let dinner = 0;
     meal.dots.map((dot: string) => {

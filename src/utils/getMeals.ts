@@ -1,6 +1,3 @@
-import {addDot} from '../redux/slices/dots/dotSlice';
-import storeProvider from '../redux/store/store';
-import {myDarkTheme} from '../themes/myTheme';
 import arrayToObject from './arrayToObject';
 
 const getMeals = (
